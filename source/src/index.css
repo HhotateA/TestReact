@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+.InputArea {
+  width: 70%;
+  background-color: white;
+  color: blue;
+  margin: 10px auto;
+  padding: 5px;
+}
+
+.App {
+  background-color: green;
+  width: 100%;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.Cell {
+  width: 70%;
+  background-color: white;
+  color: blue;
+  margin: 10px auto;
+  padding: 5px;
+}
