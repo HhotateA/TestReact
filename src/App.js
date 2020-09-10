@@ -2,6 +2,7 @@ import React,{ Component } from 'react'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button';
 import './App.css';
+import './index.css';
 
 class App extends Component {
   constructor(){
@@ -34,8 +35,11 @@ class App extends Component {
     const todos = this.state.todos.slice();
     let newId = this.state.newId;
     let newTitle = this.state.newTitle;
+    var DD = new Date();
+    var dateTime = DD.getHours()+"時 "+DD.getMinutes()+"分 "+DD.getSeconds()+"秒";
     const newTask = {
       id: newId,
+      timeStamp: dateTime,
       title: newTitle,
       done: false
     }
@@ -76,8 +80,8 @@ class TodoList extends Component {
     const todos = this.props.todos.map( todo =>
       <Todo
         key = {todo.id}
-        index = {todo.index}
         id = {todo.id}
+        timeStamp = {todo.timeStamp}
         title = {todo.title}
         done = {todo.done}
         changeState = {this.props.changeState}
@@ -98,9 +102,9 @@ class Todo extends Component {
     } else {
       return(
         <li className="Cell">
-          <span> {this.props.id} </span>
+          <span style={{float:"left"}}> {this.props.timeStamp} </span>
           <span> {this.props.title} </span>
-          <Button onClick={(e)=>{ e.preventDefault(); this.props.changeState(this.props)}}> 完了 </Button>
+          <Button style={{float:"right"}} onClick={(e)=>{ e.preventDefault(); this.props.changeState(this.props)}}> 完了 </Button>
         </li>
       );
     }
